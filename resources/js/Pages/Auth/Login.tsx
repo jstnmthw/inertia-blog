@@ -37,7 +37,7 @@ export default function Login({
             <Head title="Log in" />
 
             {status && (
-                <div className="mb-4 font-medium text-sm text-green-600">
+                <div className="mb-4 text-sm font-medium text-green-600">
                     {status}
                 </div>
             )}
@@ -76,7 +76,7 @@ export default function Login({
                     <InputError message={errors.password} className="mt-2" />
                 </div>
 
-                <div className="block mt-4">
+                <div className="mt-4 block">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -91,11 +91,11 @@ export default function Login({
                     </label>
                 </div>
 
-                <div className="flex items-center justify-end mt-4">
+                <div className="mt-4 flex items-center justify-end">
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
                         >
                             Forgot your password?
                         </Link>

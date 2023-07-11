@@ -18,7 +18,7 @@ export const Post = ({ post }: { post: PostProps }) => {
                         <Link
                             key={category.id}
                             href={'category/' + category.slug}
-                            className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                            className="rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                         >
                             {category.title}
                         </Link>
@@ -35,12 +35,12 @@ export const Post = ({ post }: { post: PostProps }) => {
                     {post.description}
                 </p>
             </div>
-            <div className="group relative text-xs text-gray-500 mt-4 flex item-center gap-x-1 w-full">
+            <div className="item-center group mt-4 flex w-full gap-x-1 text-xs text-gray-500">
                 <Reactions reaction_agg={post.reaction_agg} />
                 <span className="mx-1 text-[9px]">•</span>
                 <Link
                     href={'blog/' + post.slug + '#comments'}
-                    className="hover:underline flex items-center gap-x-1 font-medium"
+                    className="flex items-center gap-x-1 font-medium hover:underline"
                 >
                     {post.comment_count} Comments
                 </Link>

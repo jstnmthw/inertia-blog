@@ -15,13 +15,13 @@ export default function Welcome() {
     return (
         <>
             <Head title="Web dev blog | justin.ly" />
-            <div className="max-w-5xl mx-auto">
+            <div className="mx-auto max-w-5xl">
                 <Navigation />
                 <div className="mx-auto max-w-5xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl">
                         {firstPage && (
                             <>
-                                <h2 className="text-3xl pt-24 sm:pt-32 font-bold tracking-tight text-gray-900 sm:text-4xl">
+                                <h2 className="pt-24 text-3xl font-bold tracking-tight text-gray-900 sm:pt-32 sm:text-4xl">
                                     Scribbles from a web developer.
                                 </h2>
                                 <p className="mt-2 text-lg leading-8 text-gray-600">

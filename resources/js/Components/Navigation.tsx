@@ -25,7 +25,7 @@ export default function Navigation() {
                 aria-label="Global"
             >
                 <div className="flex items-center gap-x-12">
-                    <Logo className={'w-10 h-10'} />
+                    <Logo className={'h-10 w-10'} />
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
                             <a
@@ -41,7 +41,7 @@ export default function Navigation() {
                 <div className="flex lg:hidden">
                     <button
                         type="button"
-                        className="-m-2.5 border hover:shadow border-transparent transition-colors hover:border-gray-300 inline-flex items-center justify-center rounded-md p-1 text-gray-600 hover:text-gray-900"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md border border-transparent p-1 text-gray-600 transition-colors hover:border-gray-300 hover:text-gray-900 hover:shadow"
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -73,7 +73,7 @@ export default function Navigation() {
                         <Logo className="h-8 w-8" />
                         <button
                             type="button"
-                            className="-m-2.5 border hover:shadow border-transparent transition-colors hover:border-gray-300 inline-flex items-center justify-center rounded-md p-1 text-gray-600 hover:text-gray-900"
+                            className="-m-2.5 inline-flex items-center justify-center rounded-md border border-transparent p-1 text-gray-600 transition-colors hover:border-gray-300 hover:text-gray-900 hover:shadow"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>

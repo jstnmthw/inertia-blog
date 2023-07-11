@@ -10,10 +10,10 @@ export default function Pagination({
 }: {
     paginatorMeta: PaginatorMeta
 }) {
-    const { current_page, last_page } = paginatorMeta
+    // const { current_page, last_page } = paginatorMeta
     const links = paginatorMeta.links
     return (
-        <nav className="flex items-center justify-between border-t border-gray-200 pb-10 px-4 sm:px-0">
+        <nav className="flex items-center justify-between border-t border-gray-200 px-4 pb-10 sm:px-0">
             <div className="-mt-px flex w-0 flex-1">
                 <Link
                     href={links[0].url}
