@@ -21,14 +21,10 @@ export default function Reactions({
     return (
         <>
             {reaction_agg && reaction_agg.length >= 1 && (
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between">
                     <div className="relative mr-1 flex -space-x-0.5 overflow-hidden">
                         {reaction_agg.map((reaction, index) => (
-                            <ReactionIcon
-                                type={reaction.label}
-                                key={index}
-                                zIndex={index + 1}
-                            />
+                            <ReactionIcon type={reaction.label} key={index} />
                         ))}
                     </div>
                     <div className="ml-1 font-medium">
@@ -46,7 +42,8 @@ export function ReactionPopOver({ children }: { children: React.ReactNode }) {
     const handleReaction = (type: string) => {
         console.log(type)
     }
-    const style = 'w-6 h-6'
+    const style =
+        'w-6 h-6 hover:w-10 hover:h-10 transition-all transform items-center'
     return (
         <Popover className="relative">
             <Popover.Button>{children}</Popover.Button>
@@ -58,63 +55,21 @@ export function ReactionPopOver({ children }: { children: React.ReactNode }) {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
             >
-                <Popover.Panel className="fixed left-1/2 z-10 -translate-x-1/2 transform rounded-full bg-white p-2 shadow-lg">
+                <Popover.Panel className="fixed bottom-full left-1/2 z-50 -translate-x-1/2 transform rounded-full border border-gray-100 bg-white p-2 shadow-lg">
                     <div className="flex h-full flex-col items-center justify-center">
-                        <div className="relative flex space-x-1 overflow-hidden">
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('like')}
-                            >
-                                <ReactionIcon type="like" className={style} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('dislike')}
-                            >
-                                <ReactionIcon
-                                    type="dislike"
-                                    className={style}
-                                />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('love')}
-                            >
-                                <ReactionIcon type="love" className={style} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('laughingcry')}
-                            >
-                                <ReactionIcon type="cry" className={style} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('laughingcry')}
-                            >
-                                <ReactionIcon
-                                    type="laughingcry"
-                                    className={style}
-                                />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('angry')}
-                            >
-                                <ReactionIcon type="angry" className={style} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('wow')}
-                            >
-                                <ReactionIcon type="wow" className={style} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => handleReaction('sad')}
-                            >
-                                <ReactionIcon type="sad" className={style} />
-                            </button>
+                        <div className="relative flex items-center space-x-1 overflow-hidden">
+                            {REACTION_LIST.map((reaction, index) => (
+                                <button
+                                    type="button"
+                                    onClick={() => handleReaction(reaction)}
+                                    key={index}
+                                >
+                                    <ReactionIcon
+                                        type={reaction}
+                                        className={style}
+                                    />
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </Popover.Panel>
@@ -126,12 +81,10 @@ export function ReactionPopOver({ children }: { children: React.ReactNode }) {
 export const ReactionIcon: FC<{
     type: string
     className?: string
-    zIndex?: number
-}> = ({ type, className = 'w-4 h-4', zIndex }) => {
-    const z = zIndex ?? 1
+}> = ({ type, className = 'w-4 h-4' }) => {
     const styles = classNames(
         className,
-        'relative rounded-full border-1 border-white z-' + (50 - z * 10)
+        'relative rounded-full border-1 border-white'
     )
     switch (type.toLowerCase()) {
         case 'like':
