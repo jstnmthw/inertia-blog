@@ -16,7 +16,7 @@ use Database\Factories\CategoryFactory;
  *
  * @property int $id
  * @property string $slug
- * @property string $name
+ * @property string $title
  * @property string|null $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at

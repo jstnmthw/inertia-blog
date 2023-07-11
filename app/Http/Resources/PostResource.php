@@ -25,16 +25,15 @@ class PostResource extends JsonResource
             'slug' => $this->slug,
             'title' => $this->title,
             'content' => $this->content,
-            'updated_at' => $this->updated_at,
             'created_at' => $this->created_at,
             'description' => $this->description,
 
             // Relationships
-            'user' => $this->whenLoaded('user'),
+            'author' => new AuthorResource($this->whenLoaded('user')),
             'images' => $this->whenLoaded('images'),
             'comments' => $this->whenLoaded('comments'),
             'reactions' => $this->whenLoaded('reactions'),
-            'categories' => $this->whenLoaded('categories'),
+            'categories' => CategoryResource::collection($this->whenLoaded('categories')),
 
             // Counts
             'comment_count' => $this->whenCounted('comments'),

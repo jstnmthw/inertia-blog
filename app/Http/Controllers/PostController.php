@@ -16,12 +16,13 @@ class PostController extends Controller
         $post = new PostResource(
             Post::with([
                 'categories:id,title,slug',
-                'user'
+                'user:id,name'
             ])
                 ->select(
                     'id',
                     'slug',
                     'title',
+                    'content',
                     'user_id',
                     'description',
                     'created_at',
